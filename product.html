@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>My Product</h2>
+    <p id="demo"></p>
+    <script>
+
+        const product = [
+            {Id:01, Name:"donut pattern bag", Price:120, img:"https://i.pinimg.com/564x/5c/b2/8a/5cb28a1c8ac21397b9d3f8420153eb0c.jpg"},
+            {Id:02, Name:"peach pattern bag", Price:150, img:"https://i.pinimg.com/564x/ea/b7/80/eab7802ffdc5c61ea3023f405d1dd0bd.jpg"},
+            {Id:03, Name:"bear pattern bag", Price:120, img:"https://i.pinimg.com/564x/c7/51/d8/c751d8b5b04094f46fe00c4b41c26cfe.jpg"},
+            {Id:04, Name:"women's pattern bag", Price:120, img:"https://i.pinimg.com/564x/94/82/47/948247c5d9ce14d0ce77a4e5b52b65f2.jpg"},
+            {Id:05, Name:"flower pattern bag", Price:120, img:"https://i.pinimg.com/originals/a9/e4/51/a9e451077edd6c151f7c172c0f0f9fe1.jpg"},
+            {Id:06, Name:"orange pattern bag", Price:120, img:"https://i.pinimg.com/564x/a7/0b/93/a70b9320bc7a88f4d79d1c41bc2d4a97.jpg"},
+            {Id:07, Name:"rabbit pattern bag", Price:120, img:"https://i.pinimg.com/564x/b2/43/27/b24327c3c01779e8709193a51099f131.jpg"},
+            {Id:08, Name:"NCIS pattern bag", Price:150, img:"https://i.pinimg.com/564x/7d/1d/22/7d1d2210e33681503fe28b15fe614b6d.jpg"},
+            {Id:09, Name:"Blue pig pattern bag", Price:120, img:"https://i.pinimg.com/564x/03/68/a0/0368a0e61635c6d015fc167add8acb07.jpg"},
+            {Id:10, Name:"flower red pattern bag", Price:120, img:"https://i.pinimg.com/564x/34/8e/33/348e339d2a875f6fbed451ff5c9da46a.jpg"},
+        ];
+        let show = true;
+        let header = "Product Table";
+        let html = `<h3 align="center">${header}</h3>`;
+        html += `
+            <table border="1"  width="1000" align="center" bordercolor="#CD5C5C">
+                <tr  align="center" bgcolor=#FA8072>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>img</th> 
+                </tr> 
+            `;  
+        product.forEach(v => createTableData(v));
+        function createTableData(value) {
+            html += `    
+                <tr  align="center" bgcolor=#F5F5DC>
+                    <td>${value.Id}</td>
+                    <td>${value.Name}</td>
+                    <td>${value.Price}</td>
+                    <td><img width=250 height=250 src=${value.img}></td>
+                </tr>
+            `;
+        }
+        
+        function showTableData() {
+                if (show) {
+                    document.getElementById("demo").innerHTML = html;
+                } else {
+                    document.getElementById("demo").innerHTML = "";
+                }
+                show = !show;
+        }
+    </script>
+    
+   <button type="button" onclick="showTableData()">Click to show product</button>
+</body>
+</html> 
